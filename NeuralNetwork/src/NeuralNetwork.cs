@@ -90,9 +90,14 @@ public class NeuralNetwork
     {
         return ((Math.Pow(Math.E, value) - (Math.Pow(Math.E, -value))) / (Math.Pow(Math.E, value) + (Math.Pow(Math.E, -value))));
     }
-    double ReLu(double value)
+
+   double ReLu(double value)
     {
-        return (value < 0 ? 0.01f * value : value);
+        return (value <= 0 ? 0 : value);
+    }
+    double LeakyReLu(double value)
+    {
+        return (value <= 0 ? 0.01f * value : value);
     }
     
     void UpdateWeights(List<double> outputs, List<double> desiredOutputs)
