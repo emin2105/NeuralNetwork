@@ -85,6 +85,16 @@ public class NeuralNetwork
         double k = (double) System.Math.Exp(value);
         return k / (1.0f + k);
     }
+
+    double THFunction(double value)
+    {
+        return ((Math.Pow(Math.E, value) - (Math.Pow(Math.E, -value))) / (Math.Pow(Math.E, value) + (Math.Pow(Math.E, -value))));
+    }
+    double ReLu(double value)
+    {
+        return (value < 0 ? 0.01f * value : value);
+    }
+    
     void UpdateWeights(List<double> outputs, List<double> desiredOutputs)
     {
         double error;
